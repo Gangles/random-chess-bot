@@ -1,0 +1,29 @@
+{
+  "name": "random-chess-bot",
+  "version": "0.0.0",
+  "description": "A bot that tweets the board state at the end of randomized games of chess",
+  "main": "chessbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gangles/random-chess-bot"
+  },
+  "keywords": [
+    "twitter",
+    "bot",
+    "chess",
+    "random"
+  ],
+  "author": "Matthew Gallant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gangles/random-chess-bot/issues"
+  },
+  "homepage": "https://github.com/Gangles/random-chess-bot",
+  "dependencies": {
+    "chess.js": "^0.1.0",
+    "twit": "^1.1.18"
+  }
+}
