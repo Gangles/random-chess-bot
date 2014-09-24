@@ -13,10 +13,11 @@ function waitToBegin() {
 	// generate a chess game to tweet immediately
 	queueTweet();
 	
-	// schedule tweet on the hour
+	// schedule tweet every four hours
 	var d = new Date();
 	var timeout = 60 - d.getSeconds();
 	timeout += (60 - d.getMinutes() - 1) * 60;
+	timeout += (4 - (d.getHours() % 4) - 1) * 60 * 60;
 	if (!DO_TWEET) timeout = 1; // debug
 	console.log("Wait " + timeout + " for first tweet.");
 	setTimeout(beginTweeting, timeout * 1000);
