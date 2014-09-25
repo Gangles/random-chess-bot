@@ -89,9 +89,9 @@ function queueTweet() {
 			board[i] = board[i].replace(/n/g, "♞");
 			board[i] = board[i].replace(/p/g, "♟");
 
-			board[i] = board[i].replace(/\./g, "□");
+			board[i] = board[i].replace(/\./g, "▢");
 			board[i] = board[i].replace(/  /g, " ");
-		
+			
 			toTweet += "\n" + board[i];
 		}
 	}
