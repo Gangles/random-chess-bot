@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "A bot that tweets the board state at the end of randomized games of chess",
   "main": "chessbot.js",
+  "engines": {
+    "node": "0.10.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

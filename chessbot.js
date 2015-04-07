@@ -13,20 +13,20 @@ function waitToBegin() {
 	// generate a chess game to tweet immediately
 	queueTweet();
 	
-	// schedule tweet every four hours
+	// schedule tweet every 12 hours
 	var d = new Date();
 	var timeout = 60 - d.getSeconds();
-	timeout += (60 - d.getMinutes() - 1) * 60;
-	timeout += (4 - (d.getHours() % 4) - 1) * 60 * 60;
+	timeout += (59 - d.getMinutes()) * 60;
+	timeout += (11 - (d.getHours() % 12)) * 60 * 60;
 	if (!DO_TWEET) timeout = 1; // debug
 	console.log("Wait " + timeout + " for first tweet.");
 	setTimeout(beginTweeting, timeout * 1000);
 }
 
 function beginTweeting() {
-	// post a tweet, repeat every 4 hours
+	// post a tweet, repeat every 12 hours
 	postTweet();
-	setInterval(postTweet, 1000 * 60 * 60 * 4);
+	setInterval(postTweet, 1000 * 60 * 60 * 12);
 }
 
 function postTweet() {
