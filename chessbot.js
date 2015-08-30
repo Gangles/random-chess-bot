@@ -19,14 +19,13 @@ function waitToBegin() {
 	timeout += (59 - d.getMinutes()) * 60;
 	timeout += (11 - (d.getHours() % 12)) * 60 * 60;
 	if (!DO_TWEET) timeout = 1; // debug
-	console.log("Wait " + timeout + " for first tweet.");
-	setTimeout(beginTweeting, timeout * 1000);
-}
 
-function beginTweeting() {
-	// post a tweet, repeat every 12 hours
-	postTweet();
-	setInterval(postTweet, 1000 * 60 * 60 * 12);
+	// heroku scheduler runs every 10 minutes
+	console.log("Wait " + timeout + " seconds for next tweet");
+	if (timeout < 10 * 60)
+		setTimeout(postTweet, timeout * 1000);
+	else
+		process.exit(0);
 }
 
 function postTweet() {
