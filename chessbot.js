@@ -42,15 +42,14 @@ function postTweet() {
 function postCallback( error, data, response ) {
 	// twitter API callback from posting tweet
 	console.log(error, data);
-	if ( response.statusCode == 200 && !error) {
+	if (response.statusCode == 200 && !error) {
 		console.log("Post tweet success!");
+		process.exit(0);
 	}
 	else {
 		console.log("Post tweet error:", error);
+		process.exit(1);
 	}
-	
-	// queue up the next tweet
-	queueTweet();
 }
 
 function queueTweet() {
